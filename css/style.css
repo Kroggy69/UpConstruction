@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap');
+
+
+/* //// Preparations //// */
+:root {
+    --font-family-primary: 'Poppins', sans-serif;
+    --fw-Light: 300;
+    --fw-Regular: 400;
+    --fw-Medium: 500;
+    --fw-Bold: 700;
+    --fw-ExtraBold: 800;
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+}
+
+/* //// BG //// */
+.bg-img {
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    position: absolute;
+}
+
+.bg-img img{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+}
+
+.overlay-bg {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+}
+
+
+/* ////// Navbar ///// */
+header {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+nav {
+    width: 1100px;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    align-items: center;
+}
+
+.company a{
+    text-decoration: none;
+    font-family: var(--font-family-primary);
+    font-weight: var(--fw-Bold);
+    font-size: 23px;
+    color: white;
+}
+
+.company a span {
+    color: #feb900;
+}
+
+.nav-menu ul {
+    display: flex;
+}
+
+.nav-item {
+    list-style-type: none;
+    padding-top: 10px;
+    padding-left: 33px;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.nav-item .nav-link {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.603);
+    font-family: var(--font-family-primary);
+    font-weight: var(--fw-Medium);
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 4px;
+    font-size: 15px;
+    transition: .2s;
+}
+
+.nav-item .nav-link.active .bot-line-hover{
+    right: 0;
+}
+
+.nav-item .nav-link.active {
+    color: white;
+}
+
+
+.bot-line-hover {
+    position: absolute;
+    width: 100%;
+    /* height: 100px; */
+    border-bottom: 2.5px solid #feb900;
+    bottom: 0;
+    right: 100%;
+    transition: .4s;
+}
+
+.nav-item:hover .bot-line-hover {
+    right: 0;
+}
+
+.nav-menu .nav-item:hover .nav-link {
+    color: white;
+}
+
+/* //// DropDown //// */
+.dropdown {
+    opacity: 0;
+    width: 200px;
+    position: absolute;
+    visibility: hidden;
+    transition: .3s;
+    top: 60px;
+}
+
+.fa-caret-right {
+    float: right;
+    margin-top: 5px;
+    color: rgb(73, 73, 73);
+}
+
+.dropdown ul {
+    padding: 12px 0;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    position: relative;
+    border: 2px solid rgba(128, 128, 128, 0.45);
+    margin-top: 18px;
+    transition: .3s;
+    box-shadow: -3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown ul .triangle {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    z-index: 2;
+    top: -8px;
+    left: 30px;
+    border-left: 2px solid rgba(128, 128, 128, 0.45);
+    border-top: 2px solid rgba(128, 128, 128, 0.45);
+    clip-path: polygon(0 0, 100% 0, 50% 50%, 0% 100%);
+    transform: rotate(45deg);
+}
+
+.dropdown ul .dropdown-item {
+    list-style-type: none;
+    padding: 20px 20px;
+    position: relative;
+}
+
+.line-hidden {
+    overflow: hidden;
+}
+
+.bot-drop-line-hover {
+    width: 100%;
+    height: 100%;
+    border-bottom: 3px solid #feb900;
+    bottom: 0;
+    right: 100%;
+    position: absolute;
+    transition: .4s;
+}
+
+.dropdown ul .dropdown-item:hover .bot-drop-line-hover {
+    right: 0;
+}
+
+.dropdown ul .dropdown-item .dropdown-link {
+    color: black;
+    text-decoration: none;
+    font-family: var(--font-family-primary);
+    display: block;
+    
+}
+
+.dropdown-item:hover{
+    background-color: #a0a0a01f;
+    color: white;
+}
+
+.nav-item:hover .dropdown
+{
+    visibility: visible;
+    opacity: 1;
+    top: 36px;
+}
+
+
+/* ////Dropdown Child //// */
+.dropdown-child {
+    width: 200px;
+    height: 20px;
+    position: absolute;
+    transition: .3s;
+    left: 100%;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.dropdown-item:hover .dropdown-child {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown-child ul {
+    background-color: rgb(255, 255, 255);
+}
+
+/* //// DropDown Grandchild //// */
+.dropdown-grandchild {
+    width: 85px;
+    left: 100%;
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+}
+
+.dropdown-child ul .dropdown-item:hover .dropdown-grandchild {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown-grandchild ul li a i{
+    color: black;
+    font-size: 18px;
+}
